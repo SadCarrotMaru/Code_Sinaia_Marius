@@ -29,9 +29,10 @@ class CmdProcessor:
         words = textread._text.split()
         length = len(dict)
         for x in words:
+            origlength = len(x)
             word = ''.join(ch for ch in x if ch.isalpha() and ch != "'") 
             word = word.lower()
-            if len(word)==5:
+            if len(word)==5 and origlength == 5:
                 if word in dict: dict[word]=dict[word]+1
                 else: dict[word]=1
         print("Added {count} words to dictionary.".format(count=len(dict)-length))
